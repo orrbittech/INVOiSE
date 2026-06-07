@@ -38,6 +38,13 @@ const TEMPLATES: { id: TemplateId; name: string; description: string }[] = [
     description: "Bordered grid table",
   },
   { id: "corporate", name: "Corporate", description: "Bold header bars" },
+  { id: "modern", name: "Modern", description: "Clean layout, prominent total" },
+  { id: "minimal", name: "Minimal", description: "Bold black & white" },
+  {
+    id: "executive",
+    name: "Executive",
+    description: "Zebra table, payment footer",
+  },
 ];
 
 const ACCENT_PRESETS = [
@@ -136,7 +143,7 @@ export function SettingsSidebar({
             Template
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-2">
+        <CardContent className="max-h-64 space-y-2 overflow-y-auto">
           {TEMPLATES.map((t) => (
             <button
               key={t.id}
@@ -278,7 +285,9 @@ export function SettingsSidebar({
       </Button>
 
       <p className="text-center text-xs text-muted-foreground">
-        Active template: {templateData.templateId}
+        Active template:{" "}
+        {TEMPLATES.find((t) => t.id === templateData.templateId)?.name ??
+          templateData.templateId}
       </p>
     </aside>
   );

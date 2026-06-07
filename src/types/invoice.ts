@@ -1,4 +1,10 @@
-export type TemplateId = "classic" | "professional" | "corporate";
+export type TemplateId =
+  | "classic"
+  | "professional"
+  | "corporate"
+  | "modern"
+  | "minimal"
+  | "executive";
 
 export type LineItem = {
   id: string;
